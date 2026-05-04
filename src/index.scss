@@ -1,0 +1,47 @@
+@use "/src/style/varibles";
+@use "/src/App.scss";
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  color: var(--text-color);
+}
+
+button {
+  background-color: var(--btn-color);
+  border: 1px solid ;
+  box-shadow: var(--box-shadow-btn);
+  border: 1px solid var(--border-color);
+}
+
+
+input {
+  outline: none;
+  border: none;
+}
+
+
+$heading-sizes: (
+  h1: 2.5rem,
+  h2: 2rem,
+  h3: 1.75rem
+);
+
+@each $tag, $size in $heading-sizes {
+  #{$tag} {
+    font-size: $size;
+    color: var(--text-color);
+    
+  }
+}
+
+
+
+

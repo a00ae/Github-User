@@ -1,0 +1,63 @@
+Alright! Now that you’ve mastered static clones, I want to move you toward working with dynamic data. Your next task is to build a GitHub Profile Finder.
+
+1. Create the UI first - Build a clean, minimalist layout (search bar + profile card). The card should have placeholders for:
+- Avatar (rounded)
+- Name & Bio
+- Followers & Following counts
+- A list of their 5 most recent Repositories
+
+2. Add the Logic - Once the UI is ready, hook it up to the GitHub REST API. You’ll need to fetch the data based on the username typed into the search bar.
+- API Docs: https://docs.github.com/en/rest/users/users#get-a-user
+- Main Endpoint: [https://api.github.com/users/](https://api.github.com/users/){username}
+
+3. Test the Edges - Before handing it over, make sure the app doesn't "break" under these conditions:
+- Loading: Show a state/spinner while the data is fetching.
+- 404 Error: Show a "User not found" message if the search is invalid.
+- Empty States: If a user has no bio, show "No bio available" instead of a blank space.
+
+4. Host your new website via a hosting service so I can test.
+
+Send me the link once you’re done! this shouldn't take you a long time.
+
+
+//Arbice
+
+
+حسنًا! الآن وقد أتقنتَ النسخ الثابتة، أريدك أن تنتقل إلى العمل مع البيانات الديناميكية. مهمتك التالية هي إنشاء أداة بحث عن ملفات تعريف GitHub.
+
+
+1. أنشئ واجهة المستخدم أولًا - صمم تخطيطًا بسيطًا وأنيقًا (شريط بحث + بطاقة تعريف). يجب أن تحتوي البطاقة على عناصر نائبة لما يلي:
+
+- صورة رمزية (دائرية)
+
+- الاسم والسيرة الذاتية
+- عدد المتابعين وعدد من تتم متابعتهم
+
+- قائمة بأحدث 5 مستودعات لهم
+
+
+2. أضف المنطق - بمجرد أن تصبح واجهة المستخدم جاهزة، اربطها بواجهة برمجة تطبيقات REST الخاصة بـ GitHub. ستحتاج إلى جلب البيانات بناءً على اسم المستخدم الذي تم إدخاله في شريط البحث.
+
+
+
+أضف المنطق - بمجرد أن تصبح واجهة المستخدم جاهزة، اربطها بواجهة برمجة تطبيقات REST الخاصة بـ GitHub. ستحتاج إلى جلب البيانات بناءً على اسم المستخدم الذي تم إدخاله في شريط البحث.
+
+
+
+
+- وثائق واجهة برمجة التطبيقات (API): https://docs.github.com/en/rest/users/users#get-a-user
+- نقطة النهاية الرئيسية: [https://api.github.com/users/](https://api.github.com/users/){username}
+
+3. اختبار التطبيق - قبل تسليم التطبيق، تأكد من أنه يعمل بشكل صحيح في الحالات التالية:
+
+- التحميل: اعرض مؤشر تحميل أثناء جلب البيانات.
+
+- خطأ 404: اعرض رسالة "المستخدم غير موجود" إذا كانت نتيجة البحث غير صحيحة.
+
+- الحالات الفارغة: إذا لم يكن للمستخدم بيانات تعريفية، اعرض "لا توجد بيانات تعريفية متاحة" بدلاً من مساحة فارغة.
+
+4. استضف موقعك الإلكتروني الجديد عبر خدمة استضافة حتى أتمكن من اختباره.
+
+أرسل لي الرابط بعد الانتهاء! لن يستغرق الأمر وقتًا طويلاً.
+
+

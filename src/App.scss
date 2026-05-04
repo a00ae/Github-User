@@ -1,0 +1,83 @@
+@use "/src/style/varibles" as v;
+
+$size: 35px;
+$padding: var(--padding-xs);
+.app {
+  background-color: var(--bg-color);
+  width: 100%;
+  height: 100vh;
+}
+
+// nav
+
+.nav {
+  @include v.flex-space-between-row;
+  padding: var(--padding-xs) var(--padding-sm);
+  background-color: #0d090883;
+  box-shadow: 0 1px 1px 0 rgb(255 255 255 / 5%);;
+
+  &_left {
+    display: inherit;
+    gap: var(--gap-sm);
+    align-items: center;
+    .main {
+      padding: $padding;
+      display: inherit;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--btn-color);
+      cursor: pointer;
+      border-radius: var(--border-radius-md);
+      svg {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    .btn-dev {
+      padding: $padding;
+      cursor: pointer;
+      svg {
+        width: $size;
+        height: $size;
+      }
+    }
+  }
+
+  &_reight {
+    display: inherit;
+    align-items: inherit;
+    gap: var(--gap-sm);
+    .input-box {
+      border: 1px solid var(--boredr-color);
+      padding: $padding;
+      border-radius: var(--border-radius-md);
+      display: inherit;
+      align-items: inherit;
+      gap: var(--gap-xxs);
+
+      input {
+        background-color: transparent;
+        font-size: var(--font-size-sm);
+        color: var(--text-color);
+        &::placeholder {
+          font-weight: var(--font-weight-main);
+          text-transform: capitalize;
+        }
+
+      }
+      svg {
+        color: var(--boredr-color);
+
+      }
+    }
+    .profile {
+      padding: $padding;
+      background-color: black;
+      width: $size;
+      height: $size;
+      border-radius: 50%;
+      border: 1px solid var(--boredr-color);
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,61 @@
+:root {
+  --bg-color: #0d1117;
+  --text-color: #fff;
+  --btn-color: #212830;
+
+  --font-size-xxl: 80px;
+  --font-size-xl: 40px;
+  --font-size-lg: 30px;
+  --font-size-md: 24px;
+  --font-size-sm: 18px;
+  --font-size-xs: 16px;
+  --font-size-xxs: 14px;
+
+  --font-weight-bold: 700;
+  --font-weight-main: 500;
+  --font-weight-sm: 400;
+
+  // margin
+  --margin-xxl: 100px;
+  --margin-xl: 80px;
+  --margin-lg: 60px;
+  --margin-md: 40px;
+  --margin-sm: 20px;
+  --margin-xs: 10px;
+  --margin-xxs: 5px;
+
+  --padding-xxl: 100px;
+  --padding-xl: 80px;
+  --padding-lg: 60px;
+  --padding-md: 40px;
+  --padding-sm: 20px;
+  --padding-xs: 10px;
+  --padding-xxs: 5px;
+
+  // gap
+  --gap-xxl: 100px;
+  --gap-xl: 80px;
+  --gap-lg: 60px;
+  --gap-md: 40px;
+  --gap-sm: 20px;
+  --gap-xs: 10px;
+  --gap-xxs: 5px;
+
+  --border-radius-xxl: 25px;
+  --border-radius-xl: 20px;
+  --border-radius-lg: 15px;
+  --border-radius-md: 10px;
+  --border-radius-sm: 5px;
+  --border-radius-xs: 2px;
+
+  --box-shadow-btn: 0 0 0 0 #000;
+
+  --boredr-color: #3d444d;
+}
+
+
+@mixin flex-space-between-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
