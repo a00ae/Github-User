@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import type { Repos } from "../typescript/type";
 
 interface GitHubDataState<T> {
   data: T | null;
@@ -6,11 +7,12 @@ interface GitHubDataState<T> {
   error: string | null;
 }
 
-export const useFetchSingleGitHubUser = <T,>(username: string): GitHubDataState<T> => {
-  const [state, setState] = useState<GitHubDataState<T>>({
-    data: null,
+export const useFetchSingleGitHubUser = <T,>(username: string) => {
+  const [state, setState] = useState({
+    data: null as any,
+    repos: [] as Repos[], // إضافة حالة لتخزين المستودعات
     loading: true,
-    error: null,
+    error: null as string | null,
   });
 
   useEffect(() => {
@@ -19,35 +21,48 @@ export const useFetchSingleGitHubUser = <T,>(username: string): GitHubDataState<
 
     const fetchData = async () => {
       if (!username) {
-        setState({ data: null, loading: false, error: null });
+        setState({ data: null, repos: [], loading: false, error: null });
         return;
       }
 
-      setState((prevState) => ({ ...prevState, loading: true, error: null }));
+      setState((prev) => ({ ...prev, loading: true, error: null }));
+
       try {
-        const response = await fetch(`https://api.github.com/users/${username.trim()}`, { signal });
-        if (!response.ok) {
-          if (response.status === 404) {
-            throw new Error(`User "${username}" not found.`);
-          }
-          throw new Error(`GitHub API error: ${response.statusText}`);
+        // 1. جلب بيانات المستخدم الأساسية
+        const userResponse = await fetch(`https://api.github.com/users/${username.trim()}`, { signal });
+        if (!userResponse.ok) {
+          throw new Error(userResponse.status === 404 ? "User not found" : "API Error");
         }
-        const data = await response.json();
-        setState({ data, loading: false, error: null });
+        const userData = await userResponse.json();
+
+        // 2. جلب آخر 5 مستودعات (مرتبة حسب تاريخ التحديث)
+        // نستخدم query parameters: sort=updated (للترتيب) و per_page=5 (للعدد)
+        const reposResponse = await fetch(
+          `https://api.github.com/users/${username.trim()}/repos?sort=updated&per_page=5`,
+          { signal }
+        );
+        const reposData = await reposResponse.json();
+
+        setState({
+          data: userData,
+          repos: reposData,
+          loading: false,
+          error: null,
+        });
+
       } catch (err) {
-        if (err instanceof Error && err.name === 'AbortError') {
-          console.log('Fetch aborted');
-        } else {
-          setState({ data: null, loading: false, error: err instanceof Error ? err.message : "An unknown error occurred" });
-        }
+        if (err instanceof Error && err.name === 'AbortError') return;
+        setState({
+          data: null,
+          repos: [],
+          loading: false,
+          error: err instanceof Error ? err.message : "Error occurred",
+        });
       }
     };
 
     fetchData();
-
-    return () => {
-      controller.abort();
-    };
+    return () => controller.abort();
   }, [username]);
 
   return state;

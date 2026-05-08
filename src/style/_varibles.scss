@@ -56,6 +56,11 @@
   --transition-main: 0.3s;
 }
 
+$width-sm: 700px;
+$width-md: 991px;
+$width-xl: 1200px;
+$width-xxl: 1400px;
+
 
 @mixin flex-space-between-row {
   display: flex;

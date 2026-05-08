@@ -7,7 +7,7 @@ import type { GitHubUser } from "./components/typescript/github";
 
 function App() {
   const [selectedUsername, setSelectedUsername] = useState<string>("octocat"); // Default user
-  const { data, loading, error } =
+  const { data, loading, error, repos } =
     useFetchSingleGitHubUser<GitHubUser>(selectedUsername);
 
   const handleUserSelect = (username: string) => {
@@ -20,6 +20,7 @@ function App() {
       <div className="repo">
         <BoxProfile data={data} loading={loading} error={error} />
         <Repositories
+          repos={repos}
           user={selectedUsername} // Repositories might still need the username for its own fetches
           data={data}
           loading={loading}

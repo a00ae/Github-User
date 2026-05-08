@@ -9,4 +9,13 @@ export type Action<T> =
   | { type: "FETCH_SUCCESS"; payload: T }
   | { type: "FETCH_ERROR"; payload: string };
 
+
+export interface Repos  {
+  id: number;
+  language: string;
+  description: string | null;
+  visibility: string;
+  name: string;
+}
+
   
