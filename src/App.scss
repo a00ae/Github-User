@@ -55,6 +55,7 @@ $padding: var(--padding-xs);
       display: inherit;
       align-items: inherit;
       gap: var(--gap-xxs);
+      position: relative;
 
       input {
         background-color: transparent;
@@ -67,6 +68,40 @@ $padding: var(--padding-xs);
       }
       svg {
         color: var(--boredr-color);
+      }
+      .search-outbut {
+        padding: var(--padding-xs);
+        visibility: hidden;
+        position: absolute;
+        width: 100%;
+        height: 0px;
+        background-color: #424242;
+        top: 45px;
+        left: 0;
+        opacity: 0;
+        transition: var(--transition-main);
+        border: 1px solid var(--boredr-color);
+        border-radius: var(--border-radius-md);
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: var(--bg-color) transparent ;
+        &.active {
+          visibility: visible;
+          opacity: 1;
+          top: 48px;
+          height: 200px;
+          button {
+            width: 100%;
+            text-align: start;
+            background-color: transparent;
+            cursor: pointer;
+            .card {
+              padding: var(--padding-sm);
+              border-bottom: 1px solid var(--text-color);
+              color: var(--text-color);             
+            }
+          }
+        }
       }
     }
     .profile {
@@ -81,6 +116,13 @@ $padding: var(--padding-xs);
   }
 }
 
+// repo 
+.repo {
+  display: flex;
+  align-items: start;
+  width: 100%;
+}
+
 // profile
 .box-profile {
   width: 25%;
@@ -91,9 +133,8 @@ $padding: var(--padding-xs);
   align-items: center;
   gap: var(--gap-md);
   border: 1px solid var(--boredr-color);
-  margin: 20px;
+  margin: var(--margin-sm);
   &_avater {
-    background-color: red;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -144,3 +185,49 @@ $padding: var(--padding-xs);
     }
   }
 }
+
+
+// Repositories
+
+.repositories {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
+  padding: var(--padding-sm);
+  width: 70%;
+  margin: var(--margin-sm);
+    box-shadow: 0 1px 0px 0 rgb(250 245 245 / 47%);  flex: 1;
+  &_top {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .stars {
+      display: flex;
+      align-items: center;
+      background-color: var(--borrder-dashad);
+      
+      .star {
+        margin:  var(--margin-xxs) ;
+        display: flex;
+        align-items: inherit;
+        gap: 2px;
+        cursor: pointer;
+      }
+      .solid {
+        width: 1px;
+        height: 34px;
+        background-color: var(--text-color);
+      }
+      .list {
+        margin: var(--margin-xxs) ;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        
+      }
+
+    }
+  }
+} 

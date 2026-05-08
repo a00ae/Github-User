@@ -1,23 +1,39 @@
 import { memo } from "react";
-import avater from "../assets/profile.avif";
+import type { GitHubUser } from "./typescript/github"; // Assuming this type exists
 
-const BoxProfile = () => {
+interface BoxProfileProps {
+  data: GitHubUser | null;
+  loading: boolean;
+  error: string | null;
+}
+
+const BoxProfile = ({ data, loading, error }: BoxProfileProps) => {
+  if (loading) return <section className="box-profile">Loading profile...</section>;
+  if (error) return <section className="box-profile">Error: {error}</section>;
+  if (!data) return null; // Or a placeholder for no user found
+
   return (
     <section className="box-profile">
       <div className="box-profile_avater">
-        <img src={avater} alt="" />
+        <img src={data.avatar_url} alt={data.login} />
       </div>
 
       <div className="box-profile_descraption">
-        <span data-title>Hassan Alkhalaf</span>
-        <span data-descraption>Bachelor of Computer Science student</span>
+        <span data-title>{data.name || data.login}</span>
+        <span data-descraption>{data.bio || "No bio available"}</span>
         <div className="flowers">
-          <a href="">
-            <span>9</span>followers
+          <a
+            href={`https://github.com/${data.login}?tab=followers`}
+            target="_blank"
+            rel="noreferrer">
+            <span>{data.followers}</span> followers
           </a>
           <div>.</div>
-          <a href="">
-            <span>10</span> following
+          <a
+            href={`https://github.com/${data.login}?tab=following`}
+            target="_blank"
+            rel="noreferrer">
+            <span>{data.following}</span> following
           </a>
         </div>
       </div>
