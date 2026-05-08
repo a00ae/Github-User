@@ -7,7 +7,7 @@ interface GitHubDataState<T> {
   error: string | null;
 }
 
-export const useFetchSingleGitHubUser = <T,>(username: string) => {
+export const useFetchSingleGitHubUser = (username: string) => {
   const [state, setState] = useState({
     data: null as any,
     repos: [] as Repos[], // إضافة حالة لتخزين المستودعات
