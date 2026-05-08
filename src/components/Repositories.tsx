@@ -1,4 +1,4 @@
-import { RiArrowDownSFill, RiStarLine } from "@remixicon/react";
+
 import { memo } from "react";
 import type { GitHubUser } from "./typescript/github";
 import type { Repos } from "./typescript/type";
