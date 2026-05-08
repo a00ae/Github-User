@@ -3,7 +3,6 @@ import BoxProfile from "./components/BoxProfile";
 import Nav from "./components/Nav";
 import Repositories from "./components/Repositories";
 import { useFetchSingleGitHubUser } from "./components/Hooks/useFetchSingleGitHubUser";
-import type { GitHubUser } from "./components/typescript/github";
 
 function App() {
   const [selectedUsername, setSelectedUsername] = useState<string>("octocat"); // Default user
