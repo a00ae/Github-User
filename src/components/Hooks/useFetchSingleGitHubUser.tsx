@@ -35,7 +35,7 @@ export const useFetchSingleGitHubUser = <T,>(username: string): GitHubDataState<
         const data = await response.json();
         setState({ data, loading: false, error: null });
       } catch (err) {
-        if (err.name === 'AbortError') {
+        if (err instanceof Error && err.name === 'AbortError') {
           console.log('Fetch aborted');
         } else {
           setState({ data: null, loading: false, error: err instanceof Error ? err.message : "An unknown error occurred" });
