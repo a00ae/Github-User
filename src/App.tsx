@@ -8,7 +8,7 @@ import type { GitHubUser } from "./components/typescript/github";
 function App() {
   const [selectedUsername, setSelectedUsername] = useState<string>("octocat"); // Default user
   const { data, loading, error, repos } =
-    useFetchSingleGitHubUser<GitHubUser>(selectedUsername);
+    useFetchSingleGitHubUser(selectedUsername);
 
   const handleUserSelect = (username: string) => {
     setSelectedUsername(username);

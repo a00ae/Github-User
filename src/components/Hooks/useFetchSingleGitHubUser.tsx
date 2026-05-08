@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react";
 import type { Repos } from "../typescript/type";
 
-interface GitHubDataState<T> {
-  data: T | null;
-  loading: boolean;
-  error: string | null;
-}
+
 
 export const useFetchSingleGitHubUser = (username: string) => {
   const [state, setState] = useState({
