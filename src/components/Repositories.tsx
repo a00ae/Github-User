@@ -1,7 +1,14 @@
-
-import { memo } from "react";
+import React, { memo } from "react";
 import type { GitHubUser } from "./typescript/github";
 import type { Repos } from "./typescript/type";
+
+const styleRepo: React.CSSProperties = {
+  width: "70%",
+  display: "flex",
+  flexDirection: "column",
+  gap: "var(--gap-md)",
+  margin: "var(--margin-sm)",
+};
 
 interface RepositoriesProps {
   user: string;
@@ -36,30 +43,30 @@ const Repositories = ({
     );
 
   return (
-    <div style={{width: "70%", margin: "var(--margin-sm)"}}>
+    <div style={styleRepo}>
       <h2>repo 5 last</h2>
 
-      {repos.map(({ id, language, name, visibility}) => (
-        <div key={id} className="repositories" style={{width: "100%"}}>
-          <div className="repositories_top">
-            <div className="first">
-              <span>{name} </span>
+      <div className="repost" id="repost">
+        {repos.map(({ id, language, name, visibility }) => (
+          <div key={id} className="repositories" style={{ width: "100%" }}>
+            <div className="repositories_top">
+              <div className="first">
+                <a href="">
+                  <span>{name} </span>
+                </a>
+              </div>
+
+              <div className="Public">
+                <span>{visibility}</span>
+              </div>
             </div>
-
-            <div className="Public">
-              <span>{visibility}</span>
-
+            <div className="repositories_bottom">
+              <div className="background-color"></div>
+              <span>{language}</span>{" "}
             </div>
           </div>
-          <div className="repositories_bottom">
-            <div className="background-color"></div>
-            {/* This section should display actual repository data, not user data. For now, it's a placeholder. */}
-            <span>{language}</span>{" "}
-            {/* <span updated-data="true">Updated 1 hour ago</span>{" "} */}
-            {/* Changed to string literal to avoid React warning */}
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

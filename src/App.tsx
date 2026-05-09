@@ -5,7 +5,7 @@ import Repositories from "./components/Repositories";
 import { useFetchSingleGitHubUser } from "./components/Hooks/useFetchSingleGitHubUser";
 
 function App() {
-  const [selectedUsername, setSelectedUsername] = useState<string>("octocat"); // Default user
+  const [selectedUsername, setSelectedUsername] = useState<string>(""); // Default user
   const { data, loading, error, repos } =
     useFetchSingleGitHubUser(selectedUsername);
 

@@ -8,10 +8,11 @@ export const useGitHubData = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    if(!searchTerm) return;
     const fetchUsers = async () => {
       try {
         setLoading(true);
-        new Promise((rej) => setTimeout(rej, Math.random() * 6000 + 100) )
+        new Promise((rej) => setTimeout(rej, Math.random() * 6000 + 100) );      
         const response = await fetch("https://api.github.com/users");
         if (!response.ok) throw new Error(`not server ${response.status}`);
 
@@ -24,7 +25,7 @@ export const useGitHubData = () => {
       }
     };
     fetchUsers();
-  }, []);
+  }, [searchTerm]);
 
   const filteredUsers = useMemo(() => {
     const cleanedSearchTerm = searchTerm.trim().toLowerCase();
