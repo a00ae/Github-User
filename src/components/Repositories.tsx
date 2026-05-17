@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import type { GitHubUser } from "./typescript/github";
-import type { Repos } from "./typescript/type";
+import type { Repos } from "./typescript/github";
 
 const styleRepo: React.CSSProperties = {
   width: "70%",
@@ -47,13 +47,11 @@ const Repositories = ({
       <h2>repo 5 last</h2>
 
       <div className="repost" id="repost">
-        {repos.map(({ id, language, name, visibility }) => (
+        {repos.map(({ id, language, name, visibility, repos_url }) => (
           <div key={id} className="repositories" style={{ width: "100%" }}>
             <div className="repositories_top">
               <div className="first">
-                <a href="">
-                  <span>{name} </span>
-                </a>
+                <a href={repos_url}>{name}</a>
               </div>
 
               <div className="Public">

@@ -9,3 +9,12 @@ export interface GitHubUser {
   followers: number;
   following: number;
 }
+
+export interface Repos  {
+  id: number;
+  language: string;
+  description: string | null;
+  visibility: string;
+  name: string;
+  repos_url: string;
+}

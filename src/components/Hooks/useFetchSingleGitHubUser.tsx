@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { Repos } from "../typescript/type";
+import type { Repos } from "../typescript/github";
 
 
 
