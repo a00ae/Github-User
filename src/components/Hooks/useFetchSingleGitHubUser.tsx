@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import type { Repos } from "../typescript/github";
 
-
-
 export const useFetchSingleGitHubUser = (username: string) => {
   const [state, setState] = useState({
     data: null as any,
@@ -18,6 +16,7 @@ export const useFetchSingleGitHubUser = (username: string) => {
     const fetchData = async () => {
       if (!username) {
         setState({ data: null, repos: [], loading: false, error: null });
+
         return;
       }
 
@@ -25,9 +24,14 @@ export const useFetchSingleGitHubUser = (username: string) => {
 
       try {
         // 1. جلب بيانات المستخدم الأساسية
-        const userResponse = await fetch(`https://api.github.com/users/${username.trim()}`, { signal });
+        const userResponse = await fetch(
+          `https://api.github.com/users/${username.trim()}`,
+          { signal },
+        );
         if (!userResponse.ok) {
-          throw new Error(userResponse.status === 404 ? "User not found" : "API Error");
+          throw new Error(
+            userResponse.status === 404 ? "User not found" : "API Error",
+          );
         }
         const userData = await userResponse.json();
 
@@ -35,7 +39,7 @@ export const useFetchSingleGitHubUser = (username: string) => {
         // نستخدم query parameters: sort=updated (للترتيب) و per_page=5 (للعدد)
         const reposResponse = await fetch(
           `https://api.github.com/users/${username.trim()}/repos?sort=updated&per_page=5`,
-          { signal }
+          { signal },
         );
         const reposData = await reposResponse.json();
 
@@ -45,9 +49,8 @@ export const useFetchSingleGitHubUser = (username: string) => {
           loading: false,
           error: null,
         });
-
       } catch (err) {
-        if (err instanceof Error && err.name === 'AbortError') return;
+        if (err instanceof Error && err.name === "AbortError") return;
         setState({
           data: null,
           repos: [],

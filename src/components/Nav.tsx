@@ -13,11 +13,9 @@ const Nav = ({ onUserSelect }: NavProps) => {
     <div className="nav">
       <div className="nav_left">
         <div className="main">
-          {" "}
           <RiMenuLine color="#fff" />{" "}
         </div>
         <div className="btn-dev">
-          {" "}
           <RiGithubFill color="#fff" />{" "}
         </div>
       </div>
@@ -25,7 +23,6 @@ const Nav = ({ onUserSelect }: NavProps) => {
       <div className="nav_reight">
         <div className="input-box">
           <RiSearchLine />
-          {/* Removed form element as it's not needed for user selection and can cause unwanted submissions */}
           <input
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -37,13 +34,13 @@ const Nav = ({ onUserSelect }: NavProps) => {
               {filteredUsers.map(({ id, login }) => (
                 <button
                   key={id}
-                  type="button" // Changed to type="button" to prevent form submission
+                  type="button" 
                   onClick={() => {
                     onUserSelect(login);
-                    setSearchTerm(""); // Clear search term after selection
+                    setSearchTerm("");
                   }}>
                   <div className="card">
-                    <span>@{login}</span>
+                    <span>{login}</span>
                   </div>
                 </button>
               ))}
@@ -51,7 +48,7 @@ const Nav = ({ onUserSelect }: NavProps) => {
           )}
         </div>
 
-        <div className="profile">{/* <img src="" alt="" /> */}</div>
+        <div className="profile"></div>
       </div>
     </div>
   );

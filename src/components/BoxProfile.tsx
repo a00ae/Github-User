@@ -20,7 +20,7 @@ const BoxProfile = ({ data, loading, error }: BoxProfileProps) => {
 
       <div className="box-profile_descraption">
         <span data-title>{data.name || data.login}</span>
-        <span data-descraption>{data.bio || "No bio available"}</span>
+        <span data-descraption>{data.bio || ""}</span>
         <div className="flowers">
           <a
             href={`https://github.com/${data.login}?tab=followers`}

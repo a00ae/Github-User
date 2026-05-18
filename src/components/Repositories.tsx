@@ -1,6 +1,7 @@
 import React, { memo } from "react";
 import type { GitHubUser } from "./typescript/github";
 import type { Repos } from "./typescript/github";
+import { repo } from "./typescript/main";
 
 const styleRepo: React.CSSProperties = {
   width: "70%",
@@ -35,11 +36,11 @@ const Repositories = ({
     );
   if (!data)
     return (
-      <div className="repositories">No user data to fetch repositories.</div>
+      <div style={repo} className="repositories page">No user data to fetch repositories.</div>
     );
   if (!repos)
     return (
-      <div className="repositories">No user data to fetch repositories.</div>
+      <div style={repo} className="repositories page">No user data to fetch repositories.</div>
     );
 
   return (
