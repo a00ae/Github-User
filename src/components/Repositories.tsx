@@ -1,7 +1,5 @@
 import React, { memo } from "react";
-import type { GitHubUser } from "./typescript/github";
-import type { Repos } from "./typescript/github";
-import { repo } from "./typescript/main";
+import type {  RepositoriesProps } from "./typescript/github";
 import SearchUser from "./SearchUser";
 
 const styleRepo: React.CSSProperties = {
@@ -12,13 +10,7 @@ const styleRepo: React.CSSProperties = {
   margin: "var(--margin-sm)",
 };
 
-interface RepositoriesProps {
-  user: string;
-  data: GitHubUser | null;
-  loading: boolean;
-  error: string | null;
-  repos: Repos[] | [];
-}
+
 
 const Repositories = ({
   user,
@@ -28,29 +20,27 @@ const Repositories = ({
   repos,
 }: RepositoriesProps) => {
   if (loading)
-    return <div className="repositories">Loading repositories...</div>;
+    return (
+      <section className="repositories page">Loading repositories...</section>
+    );
   if (error)
     return (
-      <div className="repositories">
+      <section className="repositories">
         Error fetching repositories for {user}: {error}
-      </div>
+      </section>
     );
   if (!data)
     return (
-      <div style={repo} className="repositories page">No user data to fetch repositories. 
-      <SearchUser />
-      
-      </div>
+      <section className="repositories page">
+        Search for people on GitHub
+        <SearchUser />
+      </section>
     );
   if (!repos)
-    return (
-      <div style={repo} className="repositories page">search now
-      
-      </div>
-    );
+    return <section className="repositories page">search now</section>;
 
   return (
-    <div style={styleRepo}>
+    <section style={styleRepo}>
       <h2>repo 5 last</h2>
 
       <div className="repost" id="repost">
@@ -72,7 +62,7 @@ const Repositories = ({
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

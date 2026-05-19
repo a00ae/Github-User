@@ -8,20 +8,21 @@ interface BoxProfileProps {
 }
 
 const BoxProfile = ({ data, loading, error }: BoxProfileProps) => {
-  if (loading) return <section className="box-profile">Loading profile...</section>;
+  if (loading)
+    return <section className="box-profile">Loading profile...</section>;
   if (error) return <section className="box-profile">Error: {error}</section>;
   if (!data) return null; // Or a placeholder for no user found
 
   return (
     <section className="box-profile">
-      <div className="box-profile_avater">
+      <div className="box-profile_avatar">
         <img src={data.avatar_url} alt={data.login} />
       </div>
 
-      <div className="box-profile_descraption">
+      <div className="box-profile_description">
         <span data-title>{data.name || data.login}</span>
-        <span data-descraption>{data.bio || ""}</span>
-        <div className="flowers">
+        <span data-description>{data.bio || ""}</span>
+        <div className="followers">
           <a
             href={`https://github.com/${data.login}?tab=followers`}
             target="_blank"

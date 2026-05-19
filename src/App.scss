@@ -42,66 +42,11 @@ $padding: var(--padding-xs);
     }
   }
 
-  &_reight {
+  &_right {
     display: inherit;
     align-items: inherit;
     gap: var(--gap-sm);
-    .input-box {
-      border: 1px solid var(--border-color);
-      padding: $padding;
-      border-radius: var(--border-radius-md);
-      display: inherit;
-      align-items: inherit;
-      gap: var(--gap-xxs);
-      position: relative;
 
-      input {
-        background-color: transparent;
-        font-size: var(--font-size-sm);
-        color: var(--text-color);
-        &::placeholder {
-          font-weight: var(--font-weight-main);
-          text-transform: capitalize;
-        }
-      }
-      svg {
-        color: var(--border-color);
-      }
-      .search-outbut {
-        padding: var(--padding-xs);
-        visibility: hidden;
-        position: absolute;
-        width: 100%;
-        height: 0px;
-        background-color: #424242;
-        top: 45px;
-        left: 0;
-        opacity: 0;
-        transition: var(--transition-main);
-        border: 1px solid var(--border-color);
-        border-radius: var(--border-radius-md);
-        overflow-y: auto;
-        scrollbar-width: thin;
-        scrollbar-color: var(--bg-color) transparent;
-        &.active {
-          visibility: visible;
-          opacity: 1;
-          top: 48px;
-          height: 200px;
-          button {
-            width: 100%;
-            text-align: start;
-            background-color: transparent;
-            cursor: pointer;
-            .card {
-              padding: var(--padding-sm);
-              border-bottom: 1px solid var(--text-color);
-              color: var(--text-color);
-            }
-          }
-        }
-      }
-    }
     .profile {
       padding: $padding;
       background-color: black;
@@ -114,11 +59,77 @@ $padding: var(--padding-xs);
   }
 }
 
+.input-box {
+  border: 1px solid var(--border-color);
+  padding: $padding;
+  border-radius: var(--border-radius-md);
+  display: inherit;
+  align-items: inherit;
+  gap: var(--gap-xxs);
+  position: relative;
+
+  input {
+    background-color: transparent;
+    font-size: var(--font-size-sm);
+    color: var(--text-color);
+    &::placeholder {
+      font-weight: var(--font-weight-main);
+      text-transform: capitalize;
+    }
+  }
+  svg {
+    color: var(--border-color);
+  }
+}
+
+.search-output {
+  padding: var(--padding-xs);
+  visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 0px;
+  background-color: #9e0606;
+  top: 45px;
+  left: 0;
+  opacity: 0;
+  transition: var(--transition-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--bg-color) transparent;
+  &.active {
+    visibility: visible;
+    opacity: 1;
+    top: 48px;
+    height: 200px;
+    button {
+      width: 100%;
+      text-align: start;
+      background-color: transparent;
+      cursor: pointer;
+      .card {
+        padding: var(--padding-sm);
+        border-bottom: 1px solid var(--text-color);
+        color: var(--text-color);
+      }
+    }
+  }
+}
 // repo
 .repo {
   display: flex;
   align-items: start;
   width: 100%;
+  .repositories.page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    gap: var(--gap-sm);
+  }
+
   @media (max-width: v.$width-xl) {
     flex-direction: column;
     .box-profile {
@@ -141,7 +152,7 @@ $padding: var(--padding-xs);
   gap: var(--gap-md);
   border: 1px solid var(--border-color);
   margin: var(--margin-sm);
-  &_avater {
+  &_avatar {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -156,7 +167,7 @@ $padding: var(--padding-xs);
       object-fit: cover;
     }
   }
-  &_descraption {
+  &_description {
     display: flex;
     flex-direction: column;
     width: 300px;
@@ -164,10 +175,10 @@ $padding: var(--padding-xs);
     span[data-title] {
       font-size: var(--font-size-lg);
     }
-    span[data-descraption] {
+    span[data-description] {
       font-size: var(--font-size-md);
     }
-    .flowers {
+    .followers {
       display: flex;
       gap: var(--gap-xxs);
       a {
@@ -198,7 +209,6 @@ $padding: var(--padding-xs);
   grid-template-columns: repeat(2, minmax(250px, 1fr));
   gap: var(--gap-md);
   .repositories {
-  
     display: flex;
     flex-direction: column;
     gap: var(--gap-sm);
@@ -213,10 +223,9 @@ $padding: var(--padding-xs);
       justify-content: space-between;
       .first {
         a {
-          color: var(--hover-color)
+          color: var(--hover-color);
         }
       }
     }
   }
-  
 }

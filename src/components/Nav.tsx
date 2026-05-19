@@ -3,10 +3,9 @@ import { RiMenuLine, RiGithubFill } from "@remixicon/react";
 import SearchUser from "./SearchUser";
 import type { NavProps } from "./typescript/github";
 
-
-
-const Nav = ({onUserSelect}: NavProps) => {
-
+const Nav = ({
+  onUserSelect,
+}: NavProps) => {
 
   return (
     <div className="nav">
@@ -19,8 +18,8 @@ const Nav = ({onUserSelect}: NavProps) => {
         </div>
       </div>
 
-      <div className="nav_reight">
-        <SearchUser onUserSelect={onUserSelect}/>
+      <div className="nav_right">
+        <SearchUser onUserSelect={onUserSelect} />
 
         <div className="profile"></div>
       </div>

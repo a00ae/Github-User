@@ -20,5 +20,13 @@ export interface Repos  {
 }
 
 export interface NavProps {
-  onUserSelect?: (username: string) => void
+  onUserSelect: (username: string) => void
+}
+
+export type RepositoriesProps = {
+  user: string;
+  data: GitHubUser | null;
+  loading: boolean;
+  error: string | null;
+  repos: Repos[] | [];
 }
