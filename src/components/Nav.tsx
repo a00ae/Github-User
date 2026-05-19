@@ -1,13 +1,12 @@
 import { memo } from "react";
 import { RiMenuLine, RiGithubFill, RiSearchLine } from "@remixicon/react";
-import { useGitHubData } from "./Hooks/useGitHubData";
+import SearchUser from "./SearchUser";
+import type { NavProps } from "./typescript/github";
 
-interface NavProps {
-  onUserSelect: (username: string) => void;
-}
 
-const Nav = ({ onUserSelect }: NavProps) => {
-  const { searchTerm, setSearchTerm, filteredUsers } = useGitHubData();
+
+const Nav = ({onUserSelect}: NavProps) => {
+
 
   return (
     <div className="nav">
@@ -21,32 +20,7 @@ const Nav = ({ onUserSelect }: NavProps) => {
       </div>
 
       <div className="nav_reight">
-        <div className="input-box">
-          <RiSearchLine />
-          <input
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            type="text"
-            placeholder="search now"
-          />
-          {searchTerm.length > 0 && (
-            <div className="search-outbut active">
-              {filteredUsers.map(({ id, login }) => (
-                <button
-                  key={id}
-                  type="button" 
-                  onClick={() => {
-                    onUserSelect(login);
-                    setSearchTerm("");
-                  }}>
-                  <div className="card">
-                    <span>{login}</span>
-                  </div>
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
+        <SearchUser onUserSelect={onUserSelect}/>
 
         <div className="profile"></div>
       </div>

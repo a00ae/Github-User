@@ -18,3 +18,7 @@ export interface Repos  {
   name: string;
   repos_url: string;
 }
+
+export interface NavProps {
+  onUserSelect?: (username: string) => void
+}
