@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { RiMenuLine, RiGithubFill, RiSearchLine } from "@remixicon/react";
+import { RiMenuLine, RiGithubFill } from "@remixicon/react";
 import SearchUser from "./SearchUser";
 import type { NavProps } from "./typescript/github";
 
