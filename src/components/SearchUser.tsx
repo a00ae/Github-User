@@ -22,7 +22,7 @@ const SearchUser = ({onUserSelect}: NavProps) => {
               key={id}
               type="button"
               onClick={() => {
-                onUserSelect(login);
+                onUserSelect?.(login);
                 setSearchTerm("");
               }}>
               <div className="card">

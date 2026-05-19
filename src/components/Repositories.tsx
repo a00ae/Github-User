@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import type { GitHubUser } from "./typescript/github";
 import type { Repos } from "./typescript/github";
-import { repo, textPage404 } from "./typescript/main";
+import { repo } from "./typescript/main";
 import SearchUser from "./SearchUser";
 
 const styleRepo: React.CSSProperties = {
