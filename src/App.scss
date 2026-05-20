@@ -16,7 +16,7 @@ $padding: var(--padding-xs);
   box-shadow: 0 1px 1px 0 rgb(255 255 255 / 5%);
 
   &_left {
-    display: inherit;
+    display: flex;
     gap: var(--gap-sm);
     align-items: center;
     .main {
@@ -43,7 +43,7 @@ $padding: var(--padding-xs);
   }
 
   &_right {
-    display: inherit;
+    display: flex;
     align-items: inherit;
     gap: var(--gap-sm);
 
@@ -63,8 +63,8 @@ $padding: var(--padding-xs);
   border: 1px solid var(--border-color);
   padding: $padding;
   border-radius: var(--border-radius-md);
-  display: inherit;
-  align-items: inherit;
+  display: flex;
+  align-items: center;
   gap: var(--gap-xxs);
   position: relative;
 
@@ -121,15 +121,6 @@ $padding: var(--padding-xs);
   display: flex;
   align-items: start;
   width: 100%;
-  .repositories.page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 90vh;
-    gap: var(--gap-sm);
-  }
-
   @media (max-width: v.$width-xl) {
     flex-direction: column;
     .box-profile {
@@ -139,6 +130,18 @@ $padding: var(--padding-xs);
       width: 100%;
     }
   }
+}
+
+
+// تحريك الكلاس للخارج ليعمل في حالة البحث الأولى وحالة التحميل
+.repositories.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh; // تقليلها قليلاً لترك مساحة للـ Nav
+  gap: var(--gap-sm);
+  width: 100%;
 }
 
 // profile

@@ -6,39 +6,43 @@ import { useFetchSingleGitHubUser } from "./components/Hooks/useFetchSingleGitHu
 import SearchUser from "./components/SearchUser";
 
 function App() {
-  const [selectedUsername, setSelectedUsername] = useState<string>(""); 
+  const [selectedUsername, setSelectedUsername] = useState<string>("");
   const { data, loading, error, repos } =
     useFetchSingleGitHubUser(selectedUsername);
 
   const handleUserSelect = (username: string) => {
     setSelectedUsername(username);
   };
-  if(loading) 
-    return(
-  <section className="">loading... </section>
-  )
-  if(error) 
-    return (
-      <section className="">Error in Massage {selectedUsername} {error}</section>
-    )
-  if(!data) 
-    return <section className="repositories page">search Now
-    <SearchUser onUserSelect={handleUserSelect}/>
-    </section>
-  
-  if(!repos)
-    return <section className="">Not reops ..</section>
 
+  // يفضل عرض الـ Nav دائماً لتجربة مستخدم أفضل
+  if (!data || loading || error) {
+    return (
+      <div className="app">
+        <section className="repositories page">
+          <p>
+            {loading
+              ? "Loading..."
+              : error
+                ? `Error: ${error}`
+                : "Search for people on GitHub"}
+          </p>
+          {!data && <SearchUser onUserSelect={handleUserSelect} />}
+        </section>
+      </div>
+    );
+  }
+
+  if (!repos) return <section className="">Not reops ..</section>;
 
   return (
     <div className="app">
-      <Nav onUserSelect={handleUserSelect} />
-      
+      {data && <Nav onUserSelect={handleUserSelect} />}
+
       <div className="repo">
         <BoxProfile data={data} loading={loading} error={error} />
         <Repositories
           repos={repos}
-          user={selectedUsername} // Repositories might still need the username for its own fetches
+          user={selectedUsername}
           data={data}
           loading={loading}
           error={error}

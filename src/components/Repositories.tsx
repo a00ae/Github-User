@@ -1,6 +1,5 @@
 import React, { memo } from "react";
 import type {  RepositoriesProps } from "./typescript/github";
-import SearchUser from "./SearchUser";
 
 const styleRepo: React.CSSProperties = {
   width: "70%",
@@ -13,31 +12,8 @@ const styleRepo: React.CSSProperties = {
 
 
 const Repositories = ({
-  user,
-  data,
-  loading,
-  error,
   repos,
 }: RepositoriesProps) => {
-  if (loading)
-    return (
-      <section className="repositories page">Loading repositories...</section>
-    );
-  if (error)
-    return (
-      <section className="repositories">
-        Error fetching repositories for {user}: {error}
-      </section>
-    );
-  if (!data)
-    return (
-      <section className="repositories page">
-        Search for people on GitHub
-        <SearchUser />
-      </section>
-    );
-  if (!repos)
-    return <section className="repositories page">search now</section>;
 
   return (
     <section style={styleRepo}>
