@@ -67,6 +67,7 @@ $padding: var(--padding-xs);
   align-items: center;
   gap: var(--gap-xxs);
   position: relative;
+  transition: border-radius var(--transition-main);
 
   input {
     background-color: transparent;
@@ -80,42 +81,58 @@ $padding: var(--padding-xs);
   svg {
     color: var(--border-color);
   }
-}
-
-.search-output {
-  padding: var(--padding-xs);
-  visibility: hidden;
-  position: absolute;
-  width: 100%;
-  height: 0px;
-  background-color: #9e0606;
-  top: 45px;
-  left: 0;
-  opacity: 0;
-  transition: var(--transition-main);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-md);
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--bg-color) transparent;
-  &.active {
-    visibility: visible;
-    opacity: 1;
-    top: 48px;
-    height: 200px;
-    button {
-      width: 100%;
-      text-align: start;
-      background-color: transparent;
-      cursor: pointer;
-      .card {
-        padding: var(--padding-sm);
-        border-bottom: 1px solid var(--text-color);
-        color: var(--text-color);
+  .search-outbut {
+    padding: var(--padding-xs);
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 0px;
+    background-color: inherit;
+    top: 42px;
+    left: 0;
+    opacity: 0;
+    transition: height var(--transition-main), top var(--transition-main);
+    border: 1px solid var(--border-color);
+    border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    border-top-color: transparent ;
+    scrollbar-color: var(--bg-color) transparent;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xxs);
+    &.active {
+      visibility: visible;
+      opacity: 1;
+      top: 45px;
+      min-height: 300px;
+      left: 0;
+      button {
+        width: 100%;
+        text-align: start;
+        background-color: transparent;
+        cursor: pointer;
+        border: none;
+        .card {
+          padding: var(--padding-xxs) 0;
+          color: var(--text-color);
+          font-size: var(--font-size-sm);
+          font-weight: var(--font-weight-bold);
+          display: flex;
+          gap: var(--gap-xs);
+        }
       }
     }
   }
+  &:focus-within {
+    background-color: #42424242;
+  }
+  &.active {
+    border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+    background-color: #42424242;
+  }
 }
+
 // repo
 .repo {
   display: flex;
@@ -132,7 +149,6 @@ $padding: var(--padding-xs);
   }
 }
 
-
 // تحريك الكلاس للخارج ليعمل في حالة البحث الأولى وحالة التحميل
 .repositories.page {
   display: flex;
@@ -142,6 +158,10 @@ $padding: var(--padding-xs);
   height: 80vh; // تقليلها قليلاً لترك مساحة للـ Nav
   gap: var(--gap-sm);
   width: 100%;
+  & > p {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+  }
 }
 
 // profile

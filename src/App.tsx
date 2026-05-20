@@ -13,8 +13,6 @@ function App() {
   const handleUserSelect = (username: string) => {
     setSelectedUsername(username);
   };
-
-  // يفضل عرض الـ Nav دائماً لتجربة مستخدم أفضل
   if (!data || loading || error) {
     return (
       <div className="app">
@@ -26,7 +24,7 @@ function App() {
                 ? `Error: ${error}`
                 : "Search for people on GitHub"}
           </p>
-          {!data && <SearchUser onUserSelect={handleUserSelect} />}
+          {!data && !loading ? <SearchUser onUserSelect={handleUserSelect} /> : ""}
         </section>
       </div>
     );

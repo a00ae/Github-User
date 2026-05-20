@@ -7,7 +7,7 @@ import type { NavProps } from "./typescript/github";
 const SearchUser = ({onUserSelect}: NavProps) => {
     const {searchTerm, setSearchTerm, filteredUsers} = useGitHubData();
   return (
-    <div className="input-box">
+    <div className={`input-box ${searchTerm.length > 0 ? "active" : ""}`}>
       <RiSearchLine />
       <input
         value={searchTerm}
@@ -26,6 +26,7 @@ const SearchUser = ({onUserSelect}: NavProps) => {
                 setSearchTerm("");
               }}>
               <div className="card">
+                 <RiSearchLine />
                 <span>{login}</span>
               </div>
             </button>
