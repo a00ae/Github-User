@@ -1,11 +1,10 @@
-
 import { useGitHubData } from "./Hooks/useGitHubData";
 import { RiSearchLine } from "@remixicon/react";
 import type { NavProps } from "./typescript/github";
 
+const SearchUser = ({ onUserSelect }: NavProps) => {
+  const { searchTerm, setSearchTerm, filteredUsers } = useGitHubData();
 
-const SearchUser = ({onUserSelect}: NavProps) => {
-    const {searchTerm, setSearchTerm, filteredUsers} = useGitHubData();
   return (
     <div className={`input-box ${searchTerm.length > 0 ? "active" : ""}`}>
       <RiSearchLine />
@@ -17,20 +16,24 @@ const SearchUser = ({onUserSelect}: NavProps) => {
       />
       {searchTerm.length > 0 && (
         <div className="search-outbut active">
-          {filteredUsers.map(({ id, login }) => (
-            <button
-              key={id}
-              type="button"
-              onClick={() => {
-                onUserSelect?.(login);
-                setSearchTerm("");
-              }}>
-              <div className="card">
-                 <RiSearchLine />
-                <span>{login}</span>
-              </div>
-            </button>
-          ))}
+          {filteredUsers && filteredUsers.length > 0 ? (
+            filteredUsers.map(({ id, login }) => (
+              <button
+                key={id}
+                type="button"
+                onClick={() => {
+                  onUserSelect?.(login);
+                  setSearchTerm("");
+                }}>
+                <div className="card">
+                  <RiSearchLine />
+                  <span>{login}</span>
+                </div>
+              </button>
+            ))
+          ) : (
+            <div className="card">Not Found</div>
+          )}
         </div>
       )}
     </div>
