@@ -2,6 +2,7 @@ import { useGitHubData } from "./Hooks/useGitHubData";
 import { RiSearchLine } from "@remixicon/react";
 import type { NavProps } from "./typescript/github";
 
+
 const SearchUser = ({ onUserSelect }: NavProps) => {
   const { searchTerm, setSearchTerm, filteredUsers } = useGitHubData();
 
