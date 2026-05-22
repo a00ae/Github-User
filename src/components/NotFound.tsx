@@ -1,9 +1,22 @@
+import { useNavigate } from "react-router-dom";
 
-
-const NotFound = () => {
-  return (
-    <div>NotFound 404</div>
-  )
+interface Props {
+  error: string;
 }
+const NotFound = (props: Props) => {
+  const naivegate = useNavigate();
+  const handleClickHomePage = () => {
+    naivegate("/");
+  };
+  return (
+    <div>
+      {props.error}
 
-export default NotFound
+      <button type="button" onClick={handleClickHomePage}>
+        Go to back
+      </button>
+    </div>
+  );
+};
+
+export default NotFound;

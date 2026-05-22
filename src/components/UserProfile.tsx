@@ -4,17 +4,16 @@ import Repositories from "./Repositories";
 import SearchUser from "./SearchUser";
 import Nav from "./Nav";
 import { useParams, useNavigate } from "react-router-dom";
+import NotFound from "./NotFound";
 
 interface Props {
     userName?: string;
 }
 
 const UserProfile = ({userName}:Props) => {
-  // قراءة اسم المستخدم من الرابط /user/:username
   const { username: urlUser } = useParams();
   const navigate = useNavigate();
 
-  // الأولوية للاسم القادم من الرابط، ثم الـ Props
   const effectiveUser = urlUser || userName || "";
   const { data, loading, error, repos } = useFetchSingleGitHubUser(effectiveUser);
 
@@ -30,7 +29,7 @@ const UserProfile = ({userName}:Props) => {
             {loading
               ? "Loading..."
               : error
-                ? `Error: ${error}`
+                ? <p>Error: <span>{effectiveUser}</span> <NotFound error={error}/></p>
                 : "Search for people on GitHub"}
           </p>
           {!data && !loading ? (
