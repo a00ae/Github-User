@@ -1,17 +1,19 @@
 import { useNavigate } from "react-router-dom";
-import { useGitHubData } from "./Hooks/useGitHubData";
+
 
 interface Props {
   error?: string;
 }
 const NotFound = (props: Props) => {
-  const {error} = useGitHubData()
-  const naivegate = useNavigate();
+  const hasError = props.error && props.error.length > 0;
+  const navigate = useNavigate();
+
   const handleClickHomePage = () => {
-    naivegate("/");
+    navigate("/");
   };
+
   return (
-    <div className={`error ${error ? "active" : ""}`}>
+    <div className={`error ${hasError ? "active" : ""}`}>
       {props.error}
       <button type="button" onClick={handleClickHomePage}>
         Go to back

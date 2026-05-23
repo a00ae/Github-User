@@ -1,14 +1,6 @@
 import React, { memo } from "react";
 import type {  RepositoriesProps } from "./typescript/github";
 
-const styleRepo: React.CSSProperties = {
-  width: "70%",
-  display: "flex",
-  flexDirection: "column",
-  gap: "var(--gap-md)",
-  margin: "var(--margin-sm)",
-};
-
 
 
 const Repositories = ({
@@ -16,18 +8,18 @@ const Repositories = ({
 }: RepositoriesProps) => {
 
   return (
-    <section style={styleRepo}>
+    <section className="repos">
       <h2>repo 5 last</h2>
 
       <div className="repost" id="repost">
         {repos.map(({ id, language, name, visibility, repos_url }) => (
-          <div key={id} className="repositories" style={{ width: "100%" }}>
+          <div key={id} className="repositories">
             <div className="repositories_top">
               <div className="first">
                 <a href={repos_url}>{name}</a>
               </div>
 
-              <div className="Public">
+              <div className="public">
                 <span>{visibility}</span>
               </div>
             </div>
