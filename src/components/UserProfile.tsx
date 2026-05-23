@@ -30,7 +30,8 @@ const UserProfile = ({userName}:Props) => {
               ? "Loading..."
               : error
                 ? <p>Error: <span>{effectiveUser}</span> <NotFound error={error}/></p>
-                : "Search for people on GitHub"}
+                : "Search for people on GitHub"
+            }
           </p>
           {!data && !loading ? (
             <SearchUser onUserSelect={handleUserSelect} />

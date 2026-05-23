@@ -7,7 +7,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <NotFound error="r"/>
+    errorElement: <NotFound />
   },
   {
     path: "/user/:username",
