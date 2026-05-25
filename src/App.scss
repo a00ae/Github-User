@@ -223,12 +223,15 @@ $padding: var(--padding-xs);
       a {
         display: flex;
         gap: 2px;
-        color: #9198a1;
-        transition: color var(--transition-main);
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-main);
-        span {
+        span[data-follow-number] {
           color: var(--text-color);
+          transition: var(--transition-main);
+        }
+        span[data-follow-data] {
+          color: #9198a1;
+          font-size: var(--font-size-sm);
+          font-weight: var(--font-weight-main);
+          transition: var(--transition-main);
         }
         &:hover {
           color: var(--hover-color);
@@ -295,12 +298,13 @@ $padding: var(--padding-xs);
         border-radius: var(--border-radius-xl);
 
         span {
-          color: var(--borrder-dashad);
+          color: var(
+            --border-dashed
+          ); // تصحيح الخطأ الإملائي إذا كان المتغير معرفاً هكذا
           font-size: var(--font-size-sm);
           text-transform: capitalize;
         }
       }
-      
     }
     &_bottom {
       .background-color {
@@ -308,7 +312,7 @@ $padding: var(--padding-xs);
       }
       span {
         font-size: var(--font-size-sm);
-        color: var(--borrder-dashad);
+        color: var(--border-dashed);
       }
     }
   }

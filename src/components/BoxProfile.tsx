@@ -27,14 +27,16 @@ const BoxProfile = ({ data, loading, error }: BoxProfileProps) => {
             href={`https://github.com/${data.login}?tab=followers`}
             target="_blank"
             rel="noreferrer">
-            <span>{data.followers}</span> followers
+            <span data-follow-number>{data.followers}</span>
+            <span data-follow-data>followers</span>
           </a>
           <div>.</div>
           <a
             href={`https://github.com/${data.login}?tab=following`}
             target="_blank"
             rel="noreferrer">
-            <span>{data.following}</span> following
+            <span data-follow-number>{data.following}</span>
+            <span data-follow-data>following</span>
           </a>
         </div>
       </div>

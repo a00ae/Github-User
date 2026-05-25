@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import  { memo } from "react";
 import type {  RepositoriesProps } from "./typescript/github";
 
 
