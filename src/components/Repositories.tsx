@@ -1,12 +1,23 @@
-import  { memo } from "react";
-import type {  RepositoriesProps } from "./typescript/github";
+import { memo } from "react";
+import type { RepositoriesProps } from "./typescript/github";
 
+// Define a mapping for languages to specific color class names
+const languageColorMap: { [key: string]: string } = {
+  Go: "sky-blue",
+  JavaScript: "yellow",
+  TypeScript: "green",
+  Python: "red",
+  CPP: "",
+  Dart: "sky-green",
+};
 
+const getLanguageColorClass = (language: string | null | undefined): string => {
+  if (!language) return "default-language-color";    
+  const normalizedLanguage = language.trim();
+  return languageColorMap[normalizedLanguage] || "default-language-color";
+};
 
-const Repositories = ({
-  repos,
-}: RepositoriesProps) => {
-
+const Repositories = ({ repos }: RepositoriesProps) => {
   return (
     <section className="repos">
       <h2>repo 5 last</h2>
@@ -24,7 +35,8 @@ const Repositories = ({
               </div>
             </div>
             <div className="repositories_bottom">
-              <div className="background-color"></div>
+              <div
+                className={`language-color-indicator ${getLanguageColorClass(language)}`}></div>
               <span>{language}</span>{" "}
             </div>
           </div>
