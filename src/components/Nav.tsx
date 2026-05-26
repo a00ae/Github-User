@@ -2,12 +2,10 @@ import { memo } from "react";
 import { RiMenuLine, RiGithubFill } from "@remixicon/react";
 import SearchUser from "./SearchUser";
 import type { NavProps } from "./typescript/github";
-import { useFetchSingleGitHubUser } from "./Hooks/useFetchSingleGitHubUser";
-import { useParams } from "react-router-dom";
 
 const Nav = ({ onUserSelect }: NavProps) => {
-  const { username } = useParams();
-  const { data } = useFetchSingleGitHubUser(username || "");
+
+
 
   return (
     <div className="nav">

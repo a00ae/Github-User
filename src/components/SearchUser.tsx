@@ -2,7 +2,6 @@ import { useGitHubData } from "./Hooks/useGitHubData";
 import { RiSearchLine } from "@remixicon/react";
 import type { NavProps } from "./typescript/github";
 
-
 const SearchUser = ({ onUserSelect }: NavProps) => {
   const { searchTerm, setSearchTerm, filteredUsers } = useGitHubData();
 
@@ -14,6 +13,14 @@ const SearchUser = ({ onUserSelect }: NavProps) => {
         onChange={(e) => setSearchTerm(e.target.value)}
         type="text"
         placeholder="search now"
+        maxLength={30}
+        minLength={3}
+        onKeyDown={({ key }) => {
+          if (key === "Enter") {
+            onUserSelect?.(searchTerm);
+            setSearchTerm("");
+          }
+        }}
       />
       {searchTerm.length > 0 && (
         <div className="search-outbut active">
@@ -33,7 +40,7 @@ const SearchUser = ({ onUserSelect }: NavProps) => {
               </button>
             ))
           ) : (
-            <div className="card">Not Found</div>
+            <div className="card not-usear">Not Found {searchTerm}</div>
           )}
         </div>
       )}

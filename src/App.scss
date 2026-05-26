@@ -134,6 +134,12 @@ $padding: var(--padding-xs);
           font-weight: var(--font-weight-bold);
           display: flex;
           gap: var(--gap-xs);
+          .not-usear {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+          }
         }
       }
     }
