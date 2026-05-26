@@ -5,6 +5,7 @@ import SearchUser from "./SearchUser";
 import Nav from "./Nav";
 import { useParams, useNavigate } from "react-router-dom";
 import NotFound from "./NotFound";
+import Loading from "./Loading";
 
 interface Props {
     userName?: string;
@@ -27,7 +28,7 @@ const UserProfile = ({userName}:Props) => {
         <section className="repositories page">
           <p>
             {loading
-              ? "Loading..."
+              ? <Loading />
               : error
                 ? <p>Error: <span>{effectiveUser}</span> <NotFound error={error}/></p>
                 : "Search for people on GitHub"

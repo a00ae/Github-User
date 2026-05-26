@@ -7,8 +7,12 @@ const languageColorMap: { [key: string]: string } = {
   JavaScript: "yellow",
   TypeScript: "green",
   Python: "red",
-  CPP: "",
+  "C++": "pink",
+  C: "grey",
   Dart: "sky-green",
+  Ruby: "sky-red",
+  "C#": "sky-csh",
+  Java: "orange"
 };
 
 const getLanguageColorClass = (language: string | null | undefined): string => {
