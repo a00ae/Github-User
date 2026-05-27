@@ -12,7 +12,7 @@ export const useGitHubData = () => {
     const fetchUsers = async () => {
       try {
         setLoading(true);
-        new Promise((rej) => setTimeout(rej, Math.random() * 6000 + 100) );      
+        await new Promise((rej) => setTimeout(rej, Math.random() * 6000 + 100) );      
         const response = await fetch("https://api.github.com/users");
         if (!response.ok) throw new Error(`not server ${response.status}`);
 
