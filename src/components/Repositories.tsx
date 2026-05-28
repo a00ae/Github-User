@@ -24,8 +24,6 @@ const getLanguageColorClass = (language: string | null | undefined): string => {
 const Repositories = ({ repos }: RepositoriesProps) => {
   return (
     <section className="repos">
-      <h2>repo 5 last</h2>
-
       <div className="repost" id="repost">
         {repos.map(({ id, language, name, visibility, repos_url }) => (
           <div key={id} className="repositories">

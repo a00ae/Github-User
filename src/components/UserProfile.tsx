@@ -26,7 +26,7 @@ const UserProfile = ({userName}:Props) => {
     return (
       <div className="app">
         <section className="repositories page">
-          <p>
+          <p className="search-for-github">
             {loading
               ? <Loading />
               : error

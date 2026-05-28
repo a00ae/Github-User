@@ -177,7 +177,8 @@ $padding: var(--padding-xs);
   height: 80vh; // تقليلها قليلاً لترك مساحة للـ Nav
   gap: var(--gap-sm);
   width: 100%;
-  & > p {
+
+  .search-for-github {
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-bold);
   }
