@@ -66,7 +66,7 @@ $padding: var(--padding-xs);
 }
 
 .input-box {
-  border: 1px solid var(--border-color);
+  border: 3px solid var(--border-color);
   padding: $padding;
   border-radius: var(--border-radius-md);
   display: flex;
@@ -146,6 +146,10 @@ $padding: var(--padding-xs);
   }
   &:focus-within {
     background-color: #42424242;
+    transition: color var(--transition-main);
+    svg {
+      color: var(--hover-color)
+    }
   }
   &.active {
     border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
@@ -181,6 +185,59 @@ $padding: var(--padding-xs);
   .search-for-github {
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-bold);
+    background: linear-gradient(to right, #9f9f9f 0, #fff 10%, #868686 20%);
+    background-position: 0;
+    background-position: 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 2.5s infinite linear;
+    animation-fill-mode: forwards;
+    -webkit-text-size-adjust: none;
+    font-family: "Poppins", sans-serif;
+  }
+  @-moz-keyframes shine {
+    0% {
+      background-position: 0;
+    }
+    60% {
+      background-position: 450px;
+    }
+    100% {
+      background-position: 480px;
+    }
+  }
+  @-webkit-keyframes shine {
+    0% {
+      background-position: 0;
+    }
+    60% {
+      background-position: 450px;
+    }
+    100% {
+      background-position: 480px;
+    }
+  }
+  @-o-keyframes shine {
+    0% {
+      background-position: 0;
+    }
+    60% {
+      background-position: 450px;
+    }
+    100% {
+      background-position: 480px;
+    }
+  }
+  @keyframes shine {
+    0% {
+      background-position: 0;
+    }
+    60% {
+      background-position: 450px;
+    }
+    100% {
+      background-position: 480px;
+    }
   }
 }
 
