@@ -19,7 +19,6 @@ const SearchUser = ({ onUserSelect }: NavProps) => {
           if (key === "Enter") {
             onUserSelect?.(searchTerm);
             setSearchTerm("");
-            
           }
         }}
       />

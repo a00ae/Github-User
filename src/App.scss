@@ -66,14 +66,35 @@ $padding: var(--padding-xs);
 }
 
 .input-box {
-  border: 3px solid var(--border-color);
-  padding: $padding;
-  border-radius: var(--border-radius-md);
+  --timing: 0.3s;
+  --width-of-input: 200px;
+  --height-of-input: 40px;
+  --border-height: 2px;
+  --border-color: #2f2ee9;
+  --border-radius: 30px;
+  --after-border-radius: 1px;
+  position: relative;
+  width: var(--width-of-input);
+  height: var(--height-of-input);
   display: flex;
   align-items: center;
-  gap: var(--gap-xxs);
-  position: relative;
-  transition: border-radius var(--transition-main);
+  padding-inline: 1.8em;
+  border-radius: var(--border-radius);
+  transition: border-radius 0.5s ease;
+  background: #424242;
+  &::after {
+    content: "";
+    position: absolute;
+    background: var(--border-color);
+    transform: scaleX(0);
+    transform-origin: center;
+    width: 100%;
+    height: var(--border-height);
+    left: 0;
+    bottom: 0;
+    border-radius: 1px;
+    transition: transform var(--timing) ease;
+  }
   @media (max-width: v.$width-sm) {
     display: none;
   }
@@ -88,7 +109,7 @@ $padding: var(--padding-xs);
     }
   }
   svg {
-    color: var(--border-color);
+    color: var(--hover-color-2);
   }
   .search-outbut {
     padding: var(--padding-xs);
@@ -145,10 +166,15 @@ $padding: var(--padding-xs);
     }
   }
   &:focus-within {
-    background-color: #42424242;
+    background-color: #424242e8;
     transition: color var(--transition-main);
+    // border-radius: 0;
+    border-radius: var(--after-border-radius);
+    &::after {
+      transform: scale(1);
+    }
     svg {
-      color: var(--hover-color)
+      color: var(--hover-color);
     }
   }
   &.active {
