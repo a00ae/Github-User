@@ -3,7 +3,7 @@ import type { Repos } from "../typescript/github";
 
 export const useFetchSingleGitHubUser = (username: string) => {
   const [state, setState] = useState({
-    data: null as unknown,
+    data: null as any,
     repos: [] as Repos[], // إضافة حالة لتخزين المستودعات
     loading: true,
     error: null as string | null,
