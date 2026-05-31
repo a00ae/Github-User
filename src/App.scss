@@ -67,21 +67,20 @@ $padding: var(--padding-xs);
 
 .input-box {
   --timing: 0.3s;
-  --width-of-input: 200px;
   --height-of-input: 40px;
   --border-height: 2px;
   --border-color: #2f2ee9;
   --border-radius: 30px;
   --after-border-radius: 1px;
   position: relative;
-  width: var(--width-of-input);
   height: var(--height-of-input);
   display: flex;
   align-items: center;
-  padding-inline: 1.8em;
+  padding-inline: 1.2em;
   border-radius: var(--border-radius);
   transition: border-radius 0.5s ease;
   background: #424242;
+  gap: var(--gap-xs);
   &::after {
     content: "";
     position: absolute;
@@ -125,7 +124,7 @@ $padding: var(--padding-xs);
     transition:
       height var(--transition-main),
       top var(--transition-main);
-    border: 1px solid var(--border-color);
+    border: 1px solid transparent;
     border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
     overflow-x: hidden;
     overflow-y: auto;
@@ -168,7 +167,6 @@ $padding: var(--padding-xs);
   &:focus-within {
     background-color: #424242e8;
     transition: color var(--transition-main);
-    // border-radius: 0;
     border-radius: var(--after-border-radius);
     &::after {
       transform: scale(1);
