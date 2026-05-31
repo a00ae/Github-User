@@ -213,10 +213,12 @@ $padding: var(--padding-xs);
     background-position: 0;
     background-position: 0;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: shine 2.5s infinite linear;
     animation-fill-mode: forwards;
-    -webkit-text-size-adjust: none;
+     -webkit-text-size-adjust: none;
+    text-size-adjust: none;
     font-family: "Poppins", sans-serif;
   }
   @-moz-keyframes shine {
