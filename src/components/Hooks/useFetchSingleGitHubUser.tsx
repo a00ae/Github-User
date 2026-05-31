@@ -3,7 +3,7 @@ import type { Repos } from "../typescript/github";
 
 export const useFetchSingleGitHubUser = (username: string) => {
   const [state, setState] = useState({
-    data: null as any,
+    data: null as unknown,
     repos: [] as Repos[], // إضافة حالة لتخزين المستودعات
     loading: true,
     error: null as string | null,
@@ -29,7 +29,8 @@ export const useFetchSingleGitHubUser = (username: string) => {
           { signal },
         );
         if (!userResponse.ok) {
-          throw new Error(userResponse.status === 404 ? "Not Found 404" : "API Error");
+          const errorMessage = userResponse.status === 404 ? "User not found" : "API Error";
+          throw new Error(errorMessage);
         }
         const userData = await userResponse.json();
 
