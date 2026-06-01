@@ -19,7 +19,7 @@ const Nav = ({ onUserSelect }: NavProps) => {
       </div>
 
       <div className="nav_right">
-        <SearchUser onUserSelect={onUserSelect} />
+        <SearchUser isActive={false} onUserSelect={onUserSelect} />
 
         <div className="profile"></div>
       </div>

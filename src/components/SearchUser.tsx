@@ -6,7 +6,7 @@ interface Props {
   isActive: boolean
 }
 
-const SearchUser = ({ onUserSelect, isActive=true }: NavProps &  Props) => {
+const SearchUser = ({ onUserSelect, isActive=false }: NavProps &  Props) => {
   const { searchTerm, setSearchTerm, filteredUsers } = useGitHubData();
   
 
