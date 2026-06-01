@@ -179,6 +179,11 @@ $padding: var(--padding-xs);
     border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
     background-color: #42424242;
   }
+  &.search {
+    @media (max-width: v.$width-sm) {
+      display: flex;
+    }
+  }
 }
 
 // repo
@@ -207,6 +212,7 @@ $padding: var(--padding-xs);
   width: 100%;
 
   .search-for-github {
+    text-align: center;
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-bold);
     background: linear-gradient(to right, #9f9f9f 0, #fff 10%, #868686 20%);
@@ -472,14 +478,13 @@ $padding: var(--padding-xs);
   justify-content: center;
   overflow: hidden;
   gap: var(--gap-xs);
-  
+
   &.active {
     opacity: 1;
     height: 100vh;
-    
   }
   & p {
-    font-size:  var(--font-size-lg);
+    font-size: var(--font-size-lg);
     font-weight: var(--font-weight-bold);
   }
   & button {

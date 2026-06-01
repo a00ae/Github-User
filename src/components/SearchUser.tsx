@@ -2,11 +2,16 @@ import { useGitHubData } from "./Hooks/useGitHubData";
 import { RiSearchLine } from "@remixicon/react";
 import type { NavProps } from "./typescript/github";
 
-const SearchUser = ({ onUserSelect }: NavProps) => {
+interface Props {
+  isActive: boolean
+}
+
+const SearchUser = ({ onUserSelect, isActive=true }: NavProps &  Props) => {
   const { searchTerm, setSearchTerm, filteredUsers } = useGitHubData();
+  
 
   return (
-    <div className={`input-box ${searchTerm.length > 0 ? "active" : ""}`}>
+    <div className={`input-box ${isActive ? "search" : ""} ${searchTerm.length > 0 ? "active" : ""}`}>
       <RiSearchLine />
       <input
         value={searchTerm}

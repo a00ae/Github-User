@@ -39,7 +39,7 @@ const UserProfile = ({ userName }: Props) => {
     return (
       <section className="repositories page">
         <p className="search-for-github">Search for people on GitHub</p>
-        <SearchUser onUserSelect={handleUserSelect} />
+        <SearchUser isAcive={true} onUserSelect={handleUserSelect} />
       </section>
     );
   }
