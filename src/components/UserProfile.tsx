@@ -8,39 +8,41 @@ import NotFound from "./NotFound";
 import Loading from "./Loading";
 
 interface Props {
-    userName?: string;
+  userName?: string;
 }
 
-const UserProfile = ({userName}:Props) => {
+const UserProfile = ({ userName }: Props) => {
   const { username: urlUser } = useParams();
   const navigate = useNavigate();
 
   const effectiveUser = urlUser || userName || "";
-  const { data, loading, error, repos } = useFetchSingleGitHubUser(effectiveUser);
+  const { data, loading, error, repos } =
+    useFetchSingleGitHubUser(effectiveUser);
 
   const handleUserSelect = (name: string) => {
     navigate(`/user/${name}`);
   };
 
-  if (!data || loading || error) {
+  if (error) {
+    return <NotFound error={error} />;
+  }
+
+  if (loading) {
     return (
       <div className="app">
         <section className="repositories page">
-          <p className="search-for-github">
-            {loading
-              ? <Loading />
-              : error
-                ? <p>Error: <span>{effectiveUser}</span> <NotFound error={error}/></p>
-                : "Search for people on GitHub"
-            }
-          </p>
-          {!data && !loading ? (
-            <SearchUser onUserSelect={handleUserSelect} />
-          ) : (
-            ""
-          )}
+          <Loading />
         </section>
       </div>
+    );
+  }
+
+  if (!data) {
+    return (
+      <section className="repositories page">
+        <p className="search-for-github">Search for people on GitHub</p>
+        <SearchUser onUserSelect={handleUserSelect} />
+      </section>
     );
   }
 

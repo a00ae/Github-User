@@ -29,7 +29,7 @@ export const useFetchSingleGitHubUser = (username: string) => {
           { signal },
         );
         if (!userResponse.ok) {
-          const errorMessage = userResponse.status === 404 ? "User not found" : "API Error";
+          const errorMessage = userResponse.status === 404 ? "User not found 404" : "API Error";
           throw new Error(errorMessage);
         }
         const userData = await userResponse.json();

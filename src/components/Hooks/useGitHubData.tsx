@@ -8,13 +8,16 @@ export const useGitHubData = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if(!searchTerm) return;
+    if (!searchTerm) return;
     const fetchUsers = async () => {
       try {
         setLoading(true);
-        await new Promise((rej) => setTimeout(rej, Math.random() * 6000 + 100) );      
+        await new Promise((rej) => setTimeout(rej, Math.random() * 6000 + 100));
         const response = await fetch("https://api.github.com/users");
-        if (!response.ok) throw new Error(`not server ${response.status}`);
+        if (!response.ok)
+          throw new Error(
+            response.status === 404 ? "Resource Not Found" : "Server Error",
+          );
 
         const data = await response.json();
         setUsers(data);

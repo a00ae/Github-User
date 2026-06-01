@@ -217,7 +217,7 @@ $padding: var(--padding-xs);
     -webkit-text-fill-color: transparent;
     animation: shine 2.5s infinite linear;
     animation-fill-mode: forwards;
-     -webkit-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
     text-size-adjust: none;
     font-family: "Poppins", sans-serif;
   }
@@ -462,16 +462,24 @@ $padding: var(--padding-xs);
   display: none;
   opacity: 0;
   transition: opacity var(--transition-main);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #00b4ab;
+  
   &.active {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     opacity: 1;
+    height: 100vh;
+    
+  }
+  & p {
+    color: var(--border-color);
   }
   & button {
     background-color: var(--hover-color);
     padding: var(--padding-xs);
-    margin: auto;
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-main);
     border-radius: var(--border-radius-md);
