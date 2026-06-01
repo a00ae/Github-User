@@ -24,16 +24,14 @@ const UserProfile = ({ userName }: Props) => {
   };
 
   if (error) {
-    return <NotFound error={error} />;
+    return <NotFound userName={effectiveUser} error={error} />;
   }
 
   if (loading) {
     return (
-      <div className="app">
-        <section className="repositories page">
-          <Loading />
-        </section>
-      </div>
+      <section className="repositories page">
+        <Loading />
+      </section>
     );
   }
 
