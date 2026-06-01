@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Loading from "./Loading";
-
+import imgNotfound from "../assets/web.png"
 interface Props {
   error?: string;
 
@@ -30,6 +30,7 @@ const NotFound = (props: Props) => {
     <>
       {hasError && (
         <div className={`error ${hasError ? "active" : ""}`}>
+          <img src={imgNotfound} alt="Not Found Page 404" />
           <p>{props.error}</p>
 
           <button type="button" onClick={handleClickHomePage}>
