@@ -343,10 +343,9 @@ $padding: var(--padding-xs);
     margin: 0;
   }
   @media (max-width: v.$width-md) {
-    width: 70%;
+    width: 100%;
     margin: 0;
   }
-
   @media (max-width: v.$width-sm) {
     width: 100%;
   }
