@@ -4,7 +4,7 @@ import Loading from "./Loading";
 
 interface Props {
   error?: string;
-  userName: string;
+
 }
 const NotFound = (props: Props) => {
   const [isNavigating, setIsNavigating] = useState(false);
@@ -30,7 +30,6 @@ const NotFound = (props: Props) => {
     <>
       {hasError && (
         <div className={`error ${hasError ? "active" : ""}`}>
-          {/* <p style={{display: "flex", flexWrap: "wrap", width: "50%"}}>{props.userName}</p> */}
           <p>{props.error}</p>
 
           <button type="button" onClick={handleClickHomePage}>

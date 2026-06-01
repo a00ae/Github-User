@@ -24,7 +24,7 @@ const UserProfile = ({ userName }: Props) => {
   };
 
   if (error) {
-    return <NotFound userName={effectiveUser} error={error} />;
+    return <NotFound  error={error} />;
   }
 
   if (loading) {
