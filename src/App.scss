@@ -467,7 +467,7 @@ $padding: var(--padding-xs);
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: #00b4ab;
+  gap: var(--gap-xs);
   
   &.active {
     opacity: 1;
@@ -475,7 +475,8 @@ $padding: var(--padding-xs);
     
   }
   & p {
-    color: var(--border-color);
+    font-size:  var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
   }
   & button {
     background-color: var(--hover-color);
