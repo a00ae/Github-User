@@ -1,75 +1,48 @@
-# React + TypeScript + Vite
+# GitHub User Finder (React + TypeScript + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Live Demo](https://shields.io)]([https://github.io](https://a00ae.github.io/Github-User/))
 
-Currently, two official plugins are available:
+A sleek, responsive, and type-safe web application that interacts with the official GitHub REST API to fetch and display real-time developer profiles, repository statistics, and user data. Built from scratch using modern frontend practices.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Live Preview
+Check out the live interactive application here: **[Live Demo Link](https://a00ae.github.io/Github-User/)**
 
-## React Compiler
+## 🛠️ Tech Stack
+* **Framework:** React 18 (Functional Components & Hooks)
+* **Type Safety:** TypeScript (Interfaces for GitHub API responses)
+* **Build Tool:** Vite (For lightning-fast compilation and development)
+* **API Handling:** Fetch / Axios (Asynchronous data fetching with loading states)
+* **Styling:** CSS / SCSS (Modern responsive layout)
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## ✨ Key Features
+* **Real-time API Integration:** Seamless integration with GitHub REST API to query any public username.
+* **Comprehensive Metrics:** Displays critical user insights including follower counts, public repos, bio, creation dates, and organization links.
+* **Robust Error Handling:** Smooth UI transitions for loading states, and explicit alerts for "User Not Found" errors to guarantee a solid UX.
+* **Strict Typing:** Leverage TypeScript to map API JSON structures into reliable components, eliminating common runtime undefined errors.
+* **Fully Responsive UI:** Clean design optimized for desktop, tablet, and mobile device viewports.
 
-Note: This will impact Vite dev & build performances.
+## 📂 Project Structure Highlights
+The project uses strict engineering structures:
+* Decoupled API logic from the UI presentation components.
+* Strict linting rules utilizing Vite's ESLint compiler options.
+* Scalable directories inside `/src` to separate views, types, and assets.
 
-## Expanding the ESLint configuration
+## ⚙️ Local Development
+To get this project running on your local machine:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. Clone the repository:
+   ```bash
+   git clone https://github.com](https://github.com/a00ae/Github-User.git
+   ```
+2. Navigate into the folder:
+   ```bash
+   cd Github-User
+   ```
+3. Install dependencies:
+   ```bash
+   pnpm install  # or npm install
+   ```
+4. Start the development server:
+   ```bash
+   pnpm dev      # or npm run dev
+   ```
