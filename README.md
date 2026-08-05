@@ -32,7 +32,7 @@ To get this project running on your local machine:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com](https://github.com/a00ae/Github-User.git
+   git clone https://github.com/a00ae/Github-User.git
    ```
 2. Navigate into the folder:
    ```bash
